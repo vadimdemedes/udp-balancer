@@ -1,6 +1,6 @@
 {
   "name": "udp-balancer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Load balancer for UDP",
   "main": "index.js",
   "scripts": {
