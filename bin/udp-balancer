@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.env.DEBUG = '*';
+
+
+/**
+ * Dependencies
+ */
+
+const balance = require('../');
+const debug = require('debug')('udp-balancer');
+const meow = require('meow');
+const fs = require('fs');
+
+
+/**
+ * CLI
+ */
+
+const cli = meow({
+  pkg: require('../package.json'),
+  help: [
+    'Usage',
+    '    udp-balancer <config>'
+  ].join('\n')
+});
+
+
+/**
+ * Initialization
+ */
+
+if (cli.input.length === 0) {
+  debug('path to servers file must be provided');
+  debug('see --help');
+  process.exit(1);
+}
+
+var path = cli.input[0];
+
+try {
+  fs.statSync(path);
+} catch (err) {
+  debug('servers file does not exist');
+  process.exit(1);
+}
+
+const balancer = balance(path);
+balancer.bind(process.env.PORT || 3000);
