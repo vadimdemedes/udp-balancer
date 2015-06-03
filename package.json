@@ -25,9 +25,14 @@
   "dependencies": {
     "basic-queue": "^1.0.1",
     "debug": "^2.2.0",
+    "meow": "^3.1.0",
     "round-robin": "vdemedes/round-robin"
   },
   "devDependencies": {
+    "babel": "^5.4.7",
     "make-lint-es6": "^1.0.3"
+  },
+  "bin": {
+    "udp-balancer": "./bin/udp-balancer"
   }
 }
