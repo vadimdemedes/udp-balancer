@@ -23,6 +23,23 @@ $ npm install udp-balancer --save
 
 Whatever data you send to the udp-balancer is proxied to one of the specified servers using round-robin algorithm.
 
+
+#### Command-line tool
+
+```
+$ udp-balancer servers.json
+```
+
+
+### Docker
+
+```
+$ docker run -e PORT=3000 -p 3000:3000 -v servers.json:/servers.json vdemedes/udp-balancer /servers.json
+```
+
+
+#### API
+
 ```javascript
 const balance = require('udp-balancer');
 
