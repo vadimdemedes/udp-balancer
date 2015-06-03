@@ -1,10 +1,7 @@
-SRC = $(wildcard src/*.js)
-LIB = $(SRC:src/%.js=lib/%.js)
+SRC = index.js $(wildcard src/*.js)
 
-lib: $(LIB)
-lib/%.js: src/%.js
-	mkdir -p $(@D)
-	./node_modules/.bin/babel -L all $< -o $@
+default:
+	@echo "Default task is not set."
 
 include node_modules/make-lint-es6/index.mk
 
